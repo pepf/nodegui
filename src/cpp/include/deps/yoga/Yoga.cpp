@@ -477,9 +477,8 @@ void updateStyle(YGNode* node, T value, NeedsUpdate&& needsUpdate,
 
 template <typename Ref, typename T>
 void updateStyle(YGNode* node, Ref (YGStyle::*prop)(), T value) {
-  updateStyle(
-      node, value, [prop](YGStyle& s, T x) { return (s.*prop)() != x; },
-      [prop](YGStyle& s, T x) { (s.*prop)() = x; });
+  updateStyle(node, value, [prop](YGStyle& s, T x) { return (s.*prop)() != x; },
+              [prop](YGStyle& s, T x) { (s.*prop)() = x; });
 }
 
 template <typename Ref, typename Idx>

@@ -3485,7 +3485,6 @@ struct udl_arg {
 }  // namespace internal
 
 inline namespace literals {
-
 #if FMT_UDL_TEMPLATE
 template <typename Char, Char... CHARS>
 FMT_CONSTEXPR internal::udl_formatter<Char, CHARS...> operator""_format() {
