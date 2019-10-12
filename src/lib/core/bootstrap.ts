@@ -19,11 +19,11 @@ const wrapWithActivateUvLoop = (func: Function) => {
   };
 };
 
-const main = () => {
+const bootstrap = () => {
   process.nextTick = wrapWithActivateUvLoop(process.nextTick);
   global.setImmediate = wrapWithActivateUvLoop(global.setImmediate);
   global.setTimeout = wrapWithActivateUvLoop(global.setTimeout);
   global.setInterval = wrapWithActivateUvLoop(global.setInterval);
 };
 
-main();
+bootstrap();

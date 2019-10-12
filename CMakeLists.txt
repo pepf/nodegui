@@ -60,6 +60,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenuBar/qmenubar_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMenu/qmenu_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/core/FlexLayout/flexlayout_wrap.cpp"
+    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtCore/QMetaObject/qmetaobject_wrap.cpp"
     # Custom widgets (include them for automoc since they contain Q_OBJECT)
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QWidget/nwidget.hpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/include/nodegui/QtWidgets/QLabel/nlabel.hpp"

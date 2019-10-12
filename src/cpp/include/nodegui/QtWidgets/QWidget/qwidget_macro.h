@@ -4,6 +4,7 @@
 #include "core/YogaWidget/yogawidget_macro.h"
 #include "QtCore/QObject/qobject_macro.h"
 #include "QtGui/QIcon/qicon_wrap.h"
+#include "QtCore/QMetaObject/qmetaobject_wrap.h"
 #include <QSize>
 /*
 
@@ -268,6 +269,12 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
   this->instance->setWindowFlag(static_cast<Qt::WindowType>(windowType), switchOn); \
   return env.Null(); \
 } \
+Napi::Value metaObject(const Napi::CallbackInfo& info){ \
+  Napi::Env env = info.Env(); \
+  Napi::HandleScope scope(env); \
+  auto instance = QMetaObjectWrap::constructor.New({ Napi::External<QObject>::New(env, this->getInternalInstance()) }); \
+  return instance; \
+} \
 
 #endif //QWIDGET_WRAPPED_METHODS_DECLARATION
 
@@ -310,5 +317,6 @@ Napi::Value setWindowFlag(const Napi::CallbackInfo& info){ \
  InstanceMethod("setWindowOpacity",&WidgetWrapName::setWindowOpacity), \
  InstanceMethod("windowOpacity",&WidgetWrapName::windowOpacity), \
  InstanceMethod("setWindowFlag",&WidgetWrapName::setWindowFlag), \
+ InstanceMethod("metaObject",&WidgetWrapName::metaObject),\
 
 #endif // QWIDGET_WRAPPED_METHODS_EXPORT_DEFINE
