@@ -22,7 +22,7 @@ class YGStyle {
       facebook::yoga::detail::Values<facebook::yoga::enums::count<Enum>()>;
   using CompactValue = facebook::yoga::detail::CompactValue;
 
-public:
+ public:
   using Dimensions = Values<YGDimension>;
   using Edges = Values<YGEdge>;
 
@@ -62,7 +62,7 @@ public:
   YGStyle() = default;
   ~YGStyle() = default;
 
-private:
+ private:
   static constexpr size_t directionIdx = 0;
   static constexpr size_t flexDirectionIdx = 1;
   static constexpr size_t justifyContentIdx = 2;
@@ -73,29 +73,16 @@ private:
   static constexpr size_t flexWrapIdx = 7;
   static constexpr size_t overflowIdx = 8;
   static constexpr size_t displayIdx = 9;
-  using Flags = facebook::yoga::Bitfield<
-      uint32_t,
-      YGDirection,
-      YGFlexDirection,
-      YGJustify,
-      YGAlign,
-      YGAlign,
-      YGAlign,
-      YGPositionType,
-      YGWrap,
-      YGOverflow,
-      YGDisplay>;
+  using Flags =
+      facebook::yoga::Bitfield<uint32_t, YGDirection, YGFlexDirection,
+                               YGJustify, YGAlign, YGAlign, YGAlign,
+                               YGPositionType, YGWrap, YGOverflow, YGDisplay>;
 
-  Flags flags_ = {YGDirectionInherit,
-                  YGFlexDirectionColumn,
-                  YGJustifyFlexStart,
-                  YGAlignFlexStart,
-                  YGAlignStretch,
-                  YGAlignAuto,
-                  YGPositionTypeRelative,
-                  YGWrapNoWrap,
-                  YGOverflowVisible,
-                  YGDisplayFlex};
+  Flags flags_ = {YGDirectionInherit,     YGFlexDirectionColumn,
+                  YGJustifyFlexStart,     YGAlignFlexStart,
+                  YGAlignStretch,         YGAlignAuto,
+                  YGPositionTypeRelative, YGWrapNoWrap,
+                  YGOverflowVisible,      YGDisplayFlex};
   YGFloatOptional flex_ = {};
   YGFloatOptional flexGrow_ = {};
   YGFloatOptional flexShrink_ = {};
@@ -110,7 +97,7 @@ private:
   // Yoga specific properties, not compatible with flexbox specification
   YGFloatOptional aspectRatio_ = {};
 
-public:
+ public:
   // for library users needing a type
   using ValueRepr = std::remove_reference<decltype(margin_[0])>::type;
 

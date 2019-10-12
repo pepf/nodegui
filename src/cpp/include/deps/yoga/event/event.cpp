@@ -59,7 +59,7 @@ Node* push(Node* newHead) {
   return oldHead;
 }
 
-} // namespace
+}  // namespace
 
 void Event::reset() {
   auto head = push(nullptr);
@@ -76,11 +76,10 @@ void Event::subscribe(std::function<Subscriber>&& subscriber) {
 
 void Event::publish(const YGNode& node, Type eventType, const Data& eventData) {
   for (auto subscriber = subscribers.load(std::memory_order_relaxed);
-       subscriber != nullptr;
-       subscriber = subscriber->next) {
+       subscriber != nullptr; subscriber = subscriber->next) {
     subscriber->subscriber(node, eventType, eventData);
   }
 }
 
-} // namespace yoga
-} // namespace facebook
+}  // namespace yoga
+}  // namespace facebook

@@ -1,3 +1,4 @@
+#include "QtCore/QMetaObject/qmetaobject_wrap.h"
 #include "QtGui/QApplication/qapplication_wrap.h"
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "QtGui/QCursor/qcursor_wrap.h"
@@ -23,44 +24,41 @@
 #include "QtWidgets/QTabWidget/qtabwidget_wrap.h"
 #include "QtWidgets/QWidget/qwidget_wrap.h"
 #include "core/FlexLayout/flexlayout_wrap.h"
-#include "QtCore/QMetaObject/qmetaobject_wrap.h"
 
 #include <napi.h>
 // These cant be instantiated in JS Side
-void InitPrivateHelpers(Napi::Env env)
-{
-    QLayoutWrap::init(env); //Abstact class wrapper for pointing to any layout
+void InitPrivateHelpers(Napi::Env env) {
+  QLayoutWrap::init(env);  // Abstact class wrapper for pointing to any layout
 }
 
-Napi::Object Main(Napi::Env env, Napi::Object exports)
-{
-    InitPrivateHelpers(env);
-    QApplicationWrap::init(env, exports);
-    QClipboardWrap::init(env, exports);
-    QWidgetWrap::init(env, exports);
-    QPixmapWrap::init(env, exports);
-    QIconWrap::init(env, exports);
-    QCursorWrap::init(env, exports);
-    QGridLayoutWrap::init(env, exports);
-    FlexLayoutWrap::init(env, exports);
-    QMainWindowWrap::init(env, exports);
-    QPushButtonWrap::init(env, exports);
-    QSpinBoxWrap::init(env, exports);
-    QCheckBoxWrap::init(env, exports);
-    QProgressBarWrap::init(env, exports);
-    QRadioButtonWrap::init(env, exports);
-    QTabWidgetWrap::init(env, exports);
-    QLineEditWrap::init(env, exports);
-    QKeyEventWrap::init(env, exports);
-    QPlainTextEditWrap::init(env, exports);
-    QDialWrap::init(env, exports);
-    QLabelWrap::init(env, exports);
-    QScrollAreaWrap::init(env, exports);
-    QSystemTrayIconWrap::init(env, exports);
-    QMenuWrap::init(env, exports);
-    QMenuBarWrap::init(env, exports);
-    QMetaObjectWrap::init(env, exports);
-    return exports;
+Napi::Object Main(Napi::Env env, Napi::Object exports) {
+  InitPrivateHelpers(env);
+  QApplicationWrap::init(env, exports);
+  QClipboardWrap::init(env, exports);
+  QWidgetWrap::init(env, exports);
+  QPixmapWrap::init(env, exports);
+  QIconWrap::init(env, exports);
+  QCursorWrap::init(env, exports);
+  QGridLayoutWrap::init(env, exports);
+  FlexLayoutWrap::init(env, exports);
+  QMainWindowWrap::init(env, exports);
+  QPushButtonWrap::init(env, exports);
+  QSpinBoxWrap::init(env, exports);
+  QCheckBoxWrap::init(env, exports);
+  QProgressBarWrap::init(env, exports);
+  QRadioButtonWrap::init(env, exports);
+  QTabWidgetWrap::init(env, exports);
+  QLineEditWrap::init(env, exports);
+  QKeyEventWrap::init(env, exports);
+  QPlainTextEditWrap::init(env, exports);
+  QDialWrap::init(env, exports);
+  QLabelWrap::init(env, exports);
+  QScrollAreaWrap::init(env, exports);
+  QSystemTrayIconWrap::init(env, exports);
+  QMenuWrap::init(env, exports);
+  QMenuBarWrap::init(env, exports);
+  QMetaObjectWrap::init(env, exports);
+  return exports;
 }
 
 NODE_API_MODULE(NODE_GYP_MODULE_NAME, Main)
