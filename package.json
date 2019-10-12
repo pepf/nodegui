@@ -21,8 +21,8 @@
         "build": "tsc && npm run build:addon",
         "build:addon": "cross-env CMAKE_BUILD_PARALLEL_LEVEL=8 cmake-js compile",
         "test": "qode ./node_modules/.bin/jest",
-        "format:cpp": "clang-format -i ./src/cpp/**/*.{hpp,h,cpp}",
-        "format:ts": "tsc --noEmit && eslint 'src/**/*.{ts,tsx}' --fix"
+        "lint:cpp": "clang-format -i src/cpp/**/*.{hpp,h,cpp}",
+        "lint:ts": "tsc --noEmit && eslint './src/**/*.{ts,tsx}' --fix"
     },
     "dependencies": {
         "@nodegui/qode": "^1.0.5",

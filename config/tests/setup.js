@@ -1,5 +1,5 @@
-const { QApplication } = require("../../dist");
-module.exports = async () => {
-  global.qApp = QApplication.instance();
-  qApp.setQuitOnLastWindowClosed(false);
+const { QApplication } = require('../../dist');
+module.exports = function() {
+    global.qApp = QApplication.instance();
+    qApp.setQuitOnLastWindowClosed(false);
 };
