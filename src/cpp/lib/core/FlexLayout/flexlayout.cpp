@@ -2,7 +2,6 @@
 #include <QDebug>
 #include <QWidget>
 #include "core/YogaWidget/yogawidget.h"
-#include "spdlog/spdlog.h"
 
 FlexLayout::NodeContext* FlexLayout::getNodeContext(YGNodeRef node) {
   if (!node) {
@@ -51,7 +50,7 @@ QLayoutItem* FlexLayout::itemAt(int index) const {
   if (!this->node) {
     return nullptr;
   }
-  // spdlog::info("flexlayout: itemAt {}",index);
+  // qDebug()<<"flexlayout: itemAt {}"<<index;
   YGNodeRef childNode = YGNodeGetChild(this->node, static_cast<uint>(index));
   NodeContext* ctx = getNodeContext(childNode);
   if (!ctx) {
@@ -65,7 +64,7 @@ QLayoutItem* FlexLayout::takeAt(int index) {
   NodeContext* ctx = getNodeContext(childNode);
   QLayoutItem* childLayoutItem = ctx->item;
   YGNodeRemoveChild(this->node, childNode);
-  spdlog::info("flexlayout: takeAt ", index);
+  qDebug() << "flexlayout: takeAt " << index;
   delete ctx;
   return childLayoutItem;
 }
@@ -75,15 +74,14 @@ int FlexLayout::count() const {
     return 0;
   }
   float childCount = YGNodeGetChildCount(this->node);
-  spdlog::info("flexlayout: count {}", childCount);
+  qDebug() << "flexlayout: count " << childCount;
   return static_cast<uint>(childCount);
 }
 
 void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode) {
   if (!this->node) {
-    spdlog::warn(
-        "Flex layout's parent yoga node not set yet. Set it using setFlexNode. "
-        "Child widget will not be added to Flex Layout");
+    qWarning() << "Flex layout's parent yoga node not set yet. Set it using  "
+               << "setFlexNode. Child widget will not be added to Flex Layout";
     return;
   }
   uint count = YGNodeGetChildCount(this->node);
@@ -97,9 +95,9 @@ void FlexLayout::addWidget(QWidget* childWidget, YGNodeRef childNode) {
 
 void FlexLayout::removeWidget(QWidget* childWidget, YGNodeRef childNode) {
   if (!this->node) {
-    spdlog::warn(
-        "Flex layout's parent yoga node not set yet. Set it using setFlexNode. "
-        "childwidget cant be removed");
+    qWarning() << "Flex layout's parent yoga node not set yet. Set it using "
+               << "setFlexNode. "
+               << "childwidget cant be removed";
     return;
   }
 
@@ -116,9 +114,9 @@ void FlexLayout::insertChildBefore(QWidget* childWidget,
                                    YGNodeRef beforeChildNode,
                                    YGNodeRef childNode) {
   if (!this->node) {
-    spdlog::warn(
-        "Flex layout's parent yoga node not set yet. Set it using setFlexNode. "
-        "childwidget cant be inserted");
+    qWarning() << "Flex layout's parent yoga node not set yet. Set it using "
+               << "setFlexNode. "
+               << "childwidget cant be inserted";
     return;
   }
   uint count = YGNodeGetChildCount(this->node);

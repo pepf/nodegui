@@ -1,5 +1,5 @@
 #include "core/YogaWidget/yogawidget.h"
-#include "spdlog/spdlog.h"
+#include <QDebug>
 
 void YogaWidget::setYDisplay(QString rawValue) {
   try {
@@ -7,9 +7,9 @@ void YogaWidget::setYDisplay(QString rawValue) {
     int value = NodeStyle::NodeDisplay.at(rawDisplay);
     YGNodeStyleSetDisplay(this->getFlexNode(), static_cast<YGDisplay>(value));
     this->_yDisplay = rawValue;
-    spdlog::info("set display: {}", rawDisplay);
+    qDebug() << "set display: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: display: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: display: " << rawValue;
   }
 }
 void YogaWidget::setYAlignItems(QString rawValue) {
@@ -18,9 +18,9 @@ void YogaWidget::setYAlignItems(QString rawValue) {
     int value = NodeStyle::NodeAlign.at(rawAlignItems);
     YGNodeStyleSetAlignItems(this->getFlexNode(), static_cast<YGAlign>(value));
     this->_yAlignItems = rawValue;
-    spdlog::info("set alignItems: {}", rawAlignItems);
+    qDebug() << "set alignItems: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: alignItems: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: alignItems: " << rawValue;
   }
 }
 void YogaWidget::setYAlignContent(QString rawValue) {
@@ -30,9 +30,9 @@ void YogaWidget::setYAlignContent(QString rawValue) {
     YGNodeStyleSetAlignContent(this->getFlexNode(),
                                static_cast<YGAlign>(value));
     this->_yAlignContent = rawValue;
-    spdlog::info("set alignContent: {}", rawAlignContent);
+    qDebug() << "set alignContent: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: alignContent: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: alignContent: " << rawValue;
   }
 }
 void YogaWidget::setYAlignSelf(QString rawValue) {
@@ -41,9 +41,9 @@ void YogaWidget::setYAlignSelf(QString rawValue) {
     int value = NodeStyle::NodeAlign.at(rawAlignSelf);
     YGNodeStyleSetAlignSelf(this->getFlexNode(), static_cast<YGAlign>(value));
     this->_yAlignSelf = rawValue;
-    spdlog::info("set alignSelf: {}", rawAlignSelf);
+    qDebug() << "set alignSelf: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: alignSelf: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: alignSelf: " << rawValue;
   }
 }
 void YogaWidget::setYJustifyContent(QString rawValue) {
@@ -53,9 +53,9 @@ void YogaWidget::setYJustifyContent(QString rawValue) {
     YGNodeStyleSetJustifyContent(this->getFlexNode(),
                                  static_cast<YGJustify>(value));
     this->_yJustifyContent = rawValue;
-    spdlog::info("set justifyContent: {}", rawJustifyContent);
+    qDebug() << "set justifyContent: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: justifyContent: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: justifyContent: " << rawValue;
   }
 }
 void YogaWidget::setYDirection(QString rawValue) {
@@ -65,9 +65,9 @@ void YogaWidget::setYDirection(QString rawValue) {
     YGNodeStyleSetDirection(this->getFlexNode(),
                             static_cast<YGDirection>(value));
     this->_yDirection = rawValue;
-    spdlog::info("set direction: {}", rawDirection);
+    qDebug() << "set direction: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: direction: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: direction: " << rawValue;
   }
 }
 void YogaWidget::setYFlexDirection(QString rawValue) {
@@ -77,9 +77,9 @@ void YogaWidget::setYFlexDirection(QString rawValue) {
     YGNodeStyleSetFlexDirection(this->getFlexNode(),
                                 static_cast<YGFlexDirection>(value));
     this->_yFlexDirection = rawValue;
-    spdlog::info("set flexDirection: {}", rawFlexDirection);
+    qDebug() << "set flexDirection: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: flexDirection: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: flexDirection: " << rawValue;
   }
 }
 void YogaWidget::setYOverflow(QString rawValue) {
@@ -88,9 +88,9 @@ void YogaWidget::setYOverflow(QString rawValue) {
     int value = NodeStyle::NodeOverflow.at(rawOverflow);
     YGNodeStyleSetOverflow(this->getFlexNode(), static_cast<YGOverflow>(value));
     this->_yOverflow = rawValue;
-    spdlog::info("set overflow: {}", rawOverflow);
+    qDebug() << "set overflow: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: overflow: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: overflow: " << rawValue;
   }
 }
 void YogaWidget::setYPosition(QString rawValue) {
@@ -100,9 +100,9 @@ void YogaWidget::setYPosition(QString rawValue) {
     YGNodeStyleSetPositionType(this->getFlexNode(),
                                static_cast<YGPositionType>(value));
     this->_yPosition = rawValue;
-    spdlog::info("set positionType: {}", rawPosition);
+    qDebug() << "set positionType: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: positionType: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: positionType: " << rawValue;
   }
 }
 void YogaWidget::setYFlexWrap(QString rawValue) {
@@ -111,45 +111,45 @@ void YogaWidget::setYFlexWrap(QString rawValue) {
     int value = NodeStyle::NodeWrap.at(rawFlexWrap);
     YGNodeStyleSetFlexWrap(this->getFlexNode(), static_cast<YGWrap>(value));
     this->_yFlexWrap = rawValue;
-    spdlog::info("set flexWrap: {}", rawFlexWrap);
+    qDebug() << "set flexWrap: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: flexWrap: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: flexWrap: " << rawValue;
   }
 }
 void YogaWidget::setYFlex(float rawValue) {
   try {
     YGNodeStyleSetFlex(this->getFlexNode(), rawValue);
     this->_yFlex = rawValue;
-    spdlog::info("set flex: {}", rawValue);
+    qDebug() << "set flex: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: flex: {}", rawValue);
+    qDebug() << "Invalid valu flex" << rawValue;
   }
 }
 void YogaWidget::setYFlexGrow(float rawValue) {
   try {
     YGNodeStyleSetFlexGrow(this->getFlexNode(), rawValue);
     this->_yFlexGrow = rawValue;
-    spdlog::info("set flexGrow: {}", rawValue);
+    qDebug() << "set flexGrow: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: flexGrow: {}", rawValue);
+    qDebug() << "Invalid value: fxGrow" << rawValue;
   }
 }
 void YogaWidget::setYFlexShrink(float rawValue) {
   try {
     YGNodeStyleSetFlexShrink(this->getFlexNode(), rawValue);
     this->_yFlexShrink = rawValue;
-    spdlog::info("set flexShrink: {}", rawValue);
+    qDebug() << "set flexShrink: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: flexShrink: {}", rawValue);
+    qDebug() << "Invalid value: flexShrink" << rawValue;
   }
 }
 void YogaWidget::setYAspectRatio(float rawValue) {
   try {
     YGNodeStyleSetAspectRatio(this->getFlexNode(), rawValue);
     this->_yAspectRatio = rawValue;
-    spdlog::info("set aspectRatio: {}", rawValue);
+    qDebug() << "set aspectRatio: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: aspectRatio: {}", rawValue);
+    qDebug() << "Invalid value: aspeRatio" << rawValue;
   }
 }
 void YogaWidget::setYNodeTop(QString rawValue) {
@@ -161,9 +161,9 @@ void YogaWidget::setYNodeTop(QString rawValue) {
         : YGNodeStyleSetPosition(this->getFlexNode(), YGEdgeTop,
                                  measurement.value);
     this->_yTop = rawValue;
-    spdlog::info("set top: {}", rawValue.toStdString());
+    qDebug() << "set top:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: top: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: top: " << rawValue;
   }
 }
 void YogaWidget::setYNodeRight(QString rawValue) {
@@ -175,9 +175,9 @@ void YogaWidget::setYNodeRight(QString rawValue) {
         : YGNodeStyleSetPosition(this->getFlexNode(), YGEdgeRight,
                                  measurement.value);
     this->_yRight = rawValue;
-    spdlog::info("set right: {}", rawValue.toStdString());
+    qDebug() << "set right:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: right: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: right: " << rawValue;
   }
 }
 
@@ -190,9 +190,9 @@ void YogaWidget::setYNodeBottom(QString rawValue) {
         : YGNodeStyleSetPosition(this->getFlexNode(), YGEdgeBottom,
                                  measurement.value);
     this->_yBottom = rawValue;
-    spdlog::info("set bottom: {}", rawValue.toStdString());
+    qDebug() << "set bottom:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: bottom: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: bottom: " << rawValue;
   }
 }
 
@@ -205,9 +205,9 @@ void YogaWidget::setYNodeLeft(QString rawValue) {
         : YGNodeStyleSetPosition(this->getFlexNode(), YGEdgeLeft,
                                  measurement.value);
     this->_yLeft = rawValue;
-    spdlog::info("set left: {}", rawValue.toStdString());
+    qDebug() << "set left:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: left: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: left: " << rawValue;
   }
 }
 
@@ -223,9 +223,9 @@ void YogaWidget::setYFlexBasis(QString rawValue) {
           : YGNodeStyleSetFlexBasis(this->getFlexNode(), measurement.value);
     }
     this->_yFlexBasis = rawValue;
-    spdlog::info("set flexBasis: {}", rawValue.toStdString());
+    qDebug() << "set flexBasis:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: flexBasis: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: flexBasis: " << rawValue;
   }
 }
 
@@ -236,9 +236,9 @@ void YogaWidget::setYMinWidth(QString rawValue) {
         ? YGNodeStyleSetMinWidthPercent(this->getFlexNode(), measurement.value)
         : YGNodeStyleSetMinWidth(this->getFlexNode(), measurement.value);
     this->_yMinWidth = rawValue;
-    spdlog::info("set minWidth: {}", rawValue.toStdString());
+    qDebug() << "set minWidth:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: minWidth: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: minWidth: " << rawValue;
   }
 }
 void YogaWidget::setYMinHeight(QString rawValue) {
@@ -248,9 +248,9 @@ void YogaWidget::setYMinHeight(QString rawValue) {
         ? YGNodeStyleSetMinHeightPercent(this->getFlexNode(), measurement.value)
         : YGNodeStyleSetMinHeight(this->getFlexNode(), measurement.value);
     this->_yMinHeight = rawValue;
-    spdlog::info("set minHeight: {}", rawValue.toStdString());
+    qDebug() << "set minHeight:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: minHeight: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: minHeight: " << rawValue;
   }
 }
 void YogaWidget::setYWidth(QString rawValue) {
@@ -260,9 +260,9 @@ void YogaWidget::setYWidth(QString rawValue) {
         ? YGNodeStyleSetWidthPercent(this->getFlexNode(), measurement.value)
         : YGNodeStyleSetWidth(this->getFlexNode(), measurement.value);
     this->_yWidth = rawValue;
-    spdlog::info("set yWidth: {}", rawValue.toStdString());
+    qDebug() << "set yWidth:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: yWidth: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: yWidth: " << rawValue;
   }
 }
 void YogaWidget::setYHeight(QString rawValue) {
@@ -272,9 +272,9 @@ void YogaWidget::setYHeight(QString rawValue) {
         ? YGNodeStyleSetHeightPercent(this->getFlexNode(), measurement.value)
         : YGNodeStyleSetHeight(this->getFlexNode(), measurement.value);
     this->_yHeight = rawValue;
-    spdlog::info("set yHeight: {}", rawValue.toStdString());
+    qDebug() << "set yHeight:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: yHeight: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: yHeight: " << rawValue;
   }
 }
 void YogaWidget::setYMaxWidth(QString rawValue) {
@@ -284,9 +284,9 @@ void YogaWidget::setYMaxWidth(QString rawValue) {
         ? YGNodeStyleSetMaxWidthPercent(this->getFlexNode(), measurement.value)
         : YGNodeStyleSetMaxWidth(this->getFlexNode(), measurement.value);
     this->_yMaxWidth = rawValue;
-    spdlog::info("set maxWidth: {}", rawValue.toStdString());
+    qDebug() << "set maxWidth:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: maxWidth: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: maxWidth: " << rawValue;
   }
 }
 void YogaWidget::setYMaxHeight(QString rawValue) {
@@ -296,9 +296,9 @@ void YogaWidget::setYMaxHeight(QString rawValue) {
         ? YGNodeStyleSetMaxHeightPercent(this->getFlexNode(), measurement.value)
         : YGNodeStyleSetMaxHeight(this->getFlexNode(), measurement.value);
     this->_yMaxHeight = rawValue;
-    spdlog::info("set maxHeight: {}", rawValue.toStdString());
+    qDebug() << "set maxHeight:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: maxHeight: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: maxHeight: " << rawValue;
   }
 }
 void YogaWidget::setYPaddingTop(QString rawValue) {
@@ -310,9 +310,9 @@ void YogaWidget::setYPaddingTop(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeTop,
                                 measurement.value);
     this->_yPaddingTop = rawValue;
-    spdlog::info("set paddingTop: {}", rawValue.toStdString());
+    qDebug() << "set paddingTop:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: paddingTop: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: paddingTop: " << rawValue;
   }
 }
 void YogaWidget::setYPaddingRight(QString rawValue) {
@@ -324,9 +324,9 @@ void YogaWidget::setYPaddingRight(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeRight,
                                 measurement.value);
     this->_yPaddingRight = rawValue;
-    spdlog::info("set paddingRight: {}", rawValue.toStdString());
+    qDebug() << "set paddingRight:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: paddingRight: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: paddingRight: " << rawValue;
   }
 }
 void YogaWidget::setYPaddingBottom(QString rawValue) {
@@ -338,9 +338,9 @@ void YogaWidget::setYPaddingBottom(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeBottom,
                                 measurement.value);
     this->_yPaddingBottom = rawValue;
-    spdlog::info("set paddingBottom: {}", rawValue.toStdString());
+    qDebug() << "set paddingBottom:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: paddingBottom: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: paddingBottom: " << rawValue;
   }
 }
 void YogaWidget::setYPaddingLeft(QString rawValue) {
@@ -352,9 +352,9 @@ void YogaWidget::setYPaddingLeft(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeLeft,
                                 measurement.value);
     this->_yPaddingLeft = rawValue;
-    spdlog::info("set paddingLeft: {}", rawValue.toStdString());
+    qDebug() << "set paddingLeft:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: paddingLeft: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: paddingLeft: " << rawValue;
   }
 }
 void YogaWidget::setYPaddingHorizontal(QString rawValue) {
@@ -366,10 +366,9 @@ void YogaWidget::setYPaddingHorizontal(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeHorizontal,
                                 measurement.value);
     this->_yPaddingHorizontal = rawValue;
-    spdlog::info("set paddingHorizontal: {}", rawValue.toStdString());
+    qDebug() << "set paddingHorizontal:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: paddingHorizontal: {}",
-                 rawValue.toStdString());
+    qDebug() << "Invalid value: paddingHorizontal " << rawValue;
   }
 }
 void YogaWidget::setYPaddingVertical(QString rawValue) {
@@ -381,9 +380,9 @@ void YogaWidget::setYPaddingVertical(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeVertical,
                                 measurement.value);
     this->_yPaddingVertical = rawValue;
-    spdlog::info("set paddingVertical: {}", rawValue.toStdString());
+    qDebug() << "set paddingVertical:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: paddingVertical: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: paddingVertical: " << rawValue;
   }
 }
 void YogaWidget::setYPadding(QString rawValue) {
@@ -395,9 +394,9 @@ void YogaWidget::setYPadding(QString rawValue) {
         : YGNodeStyleSetPadding(this->getFlexNode(), YGEdgeAll,
                                 measurement.value);
     this->_yPadding = rawValue;
-    spdlog::info("set padding: {}", rawValue.toStdString());
+    qDebug() << "set padding:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: padding: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: padding: " << rawValue;
   }
 }
 void YogaWidget::setYMarginTop(QString rawValue) {
@@ -409,9 +408,9 @@ void YogaWidget::setYMarginTop(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeTop,
                                measurement.value);
     this->_yMarginTop = rawValue;
-    spdlog::info("set marginTop: {}", rawValue.toStdString());
+    qDebug() << "set marginTop:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: marginTop: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: marginTop: " << rawValue;
   }
 }
 void YogaWidget::setYMarginRight(QString rawValue) {
@@ -423,9 +422,9 @@ void YogaWidget::setYMarginRight(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeRight,
                                measurement.value);
     this->_yMarginRight = rawValue;
-    spdlog::info("set marginRight: {}", rawValue.toStdString());
+    qDebug() << "set marginRight:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: marginRight: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: marginRight: " << rawValue;
   }
 }
 void YogaWidget::setYMarginBottom(QString rawValue) {
@@ -437,9 +436,9 @@ void YogaWidget::setYMarginBottom(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeBottom,
                                measurement.value);
     this->_yMarginBottom = rawValue;
-    spdlog::info("set marginBottom: {}", rawValue.toStdString());
+    qDebug() << "set marginBottom:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: marginBottom: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: marginBottom: " << rawValue;
   }
 }
 void YogaWidget::setYMarginLeft(QString rawValue) {
@@ -451,9 +450,9 @@ void YogaWidget::setYMarginLeft(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeLeft,
                                measurement.value);
     this->_yMarginLeft = rawValue;
-    spdlog::info("set marginLeft: {}", rawValue.toStdString());
+    qDebug() << "set marginLeft:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: marginLeft: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: marginLeft: " << rawValue;
   }
 }
 void YogaWidget::setYMarginHorizontal(QString rawValue) {
@@ -465,9 +464,9 @@ void YogaWidget::setYMarginHorizontal(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeHorizontal,
                                measurement.value);
     this->_yMarginHorizontal = rawValue;
-    spdlog::info("set marginHorizontal: {}", rawValue.toStdString());
+    qDebug() << "set marginHorizontal:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: marginHorizontal: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: marginHorizontal: " << rawValue;
   }
 }
 void YogaWidget::setYMarginVertical(QString rawValue) {
@@ -479,9 +478,9 @@ void YogaWidget::setYMarginVertical(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeVertical,
                                measurement.value);
     this->_yMarginVertical = rawValue;
-    spdlog::info("set marginVertical: {}", rawValue.toStdString());
+    qDebug() << "set marginVertical:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: marginVertical: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: marginVertical: " << rawValue;
   }
 }
 void YogaWidget::setYMarginAll(QString rawValue) {
@@ -493,9 +492,9 @@ void YogaWidget::setYMarginAll(QString rawValue) {
         : YGNodeStyleSetMargin(this->getFlexNode(), YGEdgeAll,
                                measurement.value);
     this->_yMargin = rawValue;
-    spdlog::info("set margin: {}", rawValue.toStdString());
+    qDebug() << "set margin:" << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: margin: {}", rawValue.toStdString());
+    qDebug() << "Invalid value: margin: " << rawValue;
   }
 }
 
@@ -503,54 +502,54 @@ void YogaWidget::setYBorderTop(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeTop, rawValue);
     this->_yBorderTop = rawValue;
-    spdlog::info("set borderTop: {}", rawValue);
+    qDebug() << "set borderTop: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: borderTop: {}", rawValue);
+    qDebug() << "Invalid value: borderTop" << rawValue;
   }
 }
 void YogaWidget::setYBorderRight(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeRight, rawValue);
     this->_yBorderRight = rawValue;
-    spdlog::info("set borderRight: {}", rawValue);
+    qDebug() << "set borderRight: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: borderRight: {}", rawValue);
+    qDebug() << "Invalid value: borderRight" << rawValue;
   }
 }
 void YogaWidget::setYBorderBottom(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeBottom, rawValue);
     this->_yBorderBottom = rawValue;
-    spdlog::info("set borderBottom: {}", rawValue);
+    qDebug() << "set borderBottom: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: borderBottom: {}", rawValue);
+    qDebug() << "Invalid value: borderBottom" << rawValue;
   }
 }
 void YogaWidget::setYBorderLeft(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeLeft, rawValue);
     this->_yBorderLeft = rawValue;
-    spdlog::info("set borderLeft: {}", rawValue);
+    qDebug() << "set borderLeft: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: borderLeft: {}", rawValue);
+    qDebug() << "Invalid value: borderLeft" << rawValue;
   }
 }
 void YogaWidget::setYBorderHorizontal(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeHorizontal, rawValue);
     this->_yBorderHorizontal = rawValue;
-    spdlog::info("set borderHorizontal: {}", rawValue);
+    qDebug() << "set borderHorizontal: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: borderHorizontal: {}", rawValue);
+    qDebug() << "Invalid value: borderHorizontal" << rawValue;
   }
 }
 void YogaWidget::setYBorderVertical(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeVertical, rawValue);
     this->_yBorderVertical = rawValue;
-    spdlog::info("set borderVertical: {}", rawValue);
+    qDebug() << "set borderVertical: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: borderVertical: {}", rawValue);
+    qDebug() << "Invalid value: borderVertical" << rawValue;
   }
 }
 
@@ -558,8 +557,8 @@ void YogaWidget::setYBorder(float rawValue) {
   try {
     YGNodeStyleSetBorder(this->getFlexNode(), YGEdgeAll, rawValue);
     this->_yBorder = rawValue;
-    spdlog::info("set border: {}", rawValue);
+    qDebug() << "set border: " << rawValue;
   } catch (...) {
-    spdlog::warn("Invalid value: border: {}", rawValue);
+    qDebug() << "Invalid value:border " << rawValue;
   }
 }

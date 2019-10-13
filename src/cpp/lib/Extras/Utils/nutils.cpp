@@ -1,7 +1,6 @@
 #include "Extras/Utils/nutils.h"
 #include <QWidget>
 #include <string>
-#include "deps/spdlog/spdlog.h"
 
 YGSize extrautils::measureQtWidget(YGNodeRef node, float width,
                                    YGMeasureMode widthMode, float height,
