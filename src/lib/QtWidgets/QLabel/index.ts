@@ -7,7 +7,7 @@ import { QPixmap } from '../../QtGui/QPixmap';
 export const QLabelEvents = Object.freeze({
     ...BaseWidgetEvents,
 });
-export class QLabel extends NodeWidget {
+export class QLabel {
     native: NativeElement;
     private _pixmap?: QPixmap;
     constructor(parent?: NodeWidget) {
@@ -17,9 +17,12 @@ export class QLabel extends NodeWidget {
         } else {
             native = new addon.QLabel();
         }
-        super(native);
+        // super(native);
         this.native = native;
-        this.parent = parent;
+        // this.parent = parent;
+    }
+    invoke(command: string, ...arg: string[]) {
+        this.native.invoke(command, ...arg);
     }
     setWordWrap(on: boolean) {
         this.native.setWordWrap(on);

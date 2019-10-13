@@ -1,4 +1,8 @@
 
+#pragma once
+
+#include <napi.h>
+
 #ifndef COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE
 #define COMPONENT_WRAPPED_METHODS_EXPORT_DEFINE \
                                                 \

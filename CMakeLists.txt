@@ -44,7 +44,7 @@ add_library(${CORE_WIDGETS_ADDON} SHARED
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QWidget/qwidget_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QGridLayout/qgridlayout_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QDial/qdial_wrap.cpp"
-    "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QLabel/qlabel_wrap.cpp"
+    # "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QLabel/qlabel_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QLayout/qlayout_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QMainWindow/qmainwindow_wrap.cpp"
     "${PROJECT_SOURCE_DIR}/src/cpp/lib/QtWidgets/QPushButton/qpushbutton_wrap.cpp"

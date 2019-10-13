@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QLabel>
 #include "core/NodeWidget/nodewidget.h"
 

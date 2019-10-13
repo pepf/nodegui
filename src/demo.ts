@@ -2,8 +2,8 @@ import { QLabel } from './lib/QtWidgets/QLabel';
 
 function main() {
     const label = new QLabel();
-    const meta = label.metaObject();
-    console.log(meta.className(), meta.methodCount());
+    label.invoke('show');
+    label.invoke('setText', 'hell12312o');
     (global as any).label = label;
 }
 
