@@ -3,7 +3,6 @@
 #include "Extras/Utils/nutils.h"
 #include "core/Component/component_macro.h"
 
-
 Napi::FunctionReference QKeyEventWrap::constructor;
 
 Napi::Object QKeyEventWrap::init(Napi::Env env, Napi::Object exports) {

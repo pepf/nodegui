@@ -1,7 +1,6 @@
 #include "QtGui/QClipboard/qclipboard_wrap.h"
 #include "Extras/Utils/nutils.h"
 
-
 Napi::FunctionReference QClipboardWrap::constructor;
 
 Napi::Object QClipboardWrap::init(Napi::Env env, Napi::Object exports) {

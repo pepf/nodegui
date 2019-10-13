@@ -2,7 +2,6 @@
 #include "Extras/Utils/nutils.h"
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 
-
 Napi::FunctionReference QCursorWrap::constructor;
 
 Napi::Object QCursorWrap::init(Napi::Env env, Napi::Object exports) {

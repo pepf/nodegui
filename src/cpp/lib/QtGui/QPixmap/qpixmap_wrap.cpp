@@ -1,7 +1,6 @@
 #include "QtGui/QPixmap/qpixmap_wrap.h"
 #include "Extras/Utils/nutils.h"
 
-
 Napi::FunctionReference QPixmapWrap::constructor;
 
 Napi::Object QPixmapWrap::init(Napi::Env env, Napi::Object exports) {

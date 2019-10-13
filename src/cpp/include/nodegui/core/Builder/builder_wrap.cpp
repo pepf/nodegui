@@ -39,7 +39,9 @@ NGGenericComponentWrap::NGGenericComponentWrap(const Napi::CallbackInfo& info)
 
 NGGenericComponentWrap::~NGGenericComponentWrap() { this->instance.reset(); }
 
-ComponentType* NGGenericComponentWrap::getInternalInstance() { return this->instance.get(); }
+ComponentType* NGGenericComponentWrap::getInternalInstance() {
+  return this->instance.get();
+}
 
 Napi::Value NGGenericComponentWrap::invoke(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
