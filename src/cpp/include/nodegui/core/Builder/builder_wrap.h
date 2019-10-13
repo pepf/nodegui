@@ -2,13 +2,13 @@
 
 #include <napi.h>
 #include <stdlib.h>
-#include "core/Component/component_macro.h"
 #include <QGenericArgument>
 #include <QString>
+#include "core/Component/component_macro.h"
 
 template <typename ComponentType>
 class NGGenericComponentWrap
-    : public Napi::ObjectWrap<NGGenericComponentWrap<ComponentType>>{
+    : public Napi::ObjectWrap<NGGenericComponentWrap<ComponentType>> {
  private:
   ComponentType* instance;
 
@@ -29,7 +29,8 @@ class NGGenericComponentWrap
     exports.Set(CLASSNAME, func);
     return exports;
   };
-  NGGenericComponentWrap(const Napi::CallbackInfo& info) : Napi::ObjectWrap<NGGenericComponentWrap<ComponentType>>(info) {
+  NGGenericComponentWrap(const Napi::CallbackInfo& info)
+      : Napi::ObjectWrap<NGGenericComponentWrap<ComponentType>>(info) {
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
 
@@ -43,19 +44,20 @@ class NGGenericComponentWrap
     Napi::Env env = info.Env();
     Napi::HandleScope scope(env);
 
-    if(info.Length() == 1){
+    if (info.Length() == 1) {
       Napi::String methodName = info[0].As<Napi::String>();
-      this->instance->metaObject()->invokeMethod(this->instance, methodName.Utf8Value().c_str());
+      this->instance->metaObject()->invokeMethod(
+          this->instance, methodName.Utf8Value().c_str());
     }
-    if(info.Length() == 2){
-        Napi::String methodName = info[0].As<Napi::String>();
-        Napi::String arg = info[1].As<Napi::String>();
-        this->instance->metaObject()->invokeMethod(this->instance, methodName.Utf8Value().c_str(), 
-        Q_ARG(QString,arg.Utf8Value().c_str()));
+    if (info.Length() == 2) {
+      Napi::String methodName = info[0].As<Napi::String>();
+      Napi::String arg = info[1].As<Napi::String>();
+      this->instance->metaObject()->invokeMethod(
+          this->instance, methodName.Utf8Value().c_str(),
+          Q_ARG(QString, arg.Utf8Value().c_str()));
     }
     return Napi::Boolean::New(env, false);
   }
-
 };
 
 template <typename ComponentType>
