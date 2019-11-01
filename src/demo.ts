@@ -9,6 +9,7 @@ import { QKeySequence } from "./lib/QtGui/QKeySequence";
 import { ShortcutContext } from "./lib/QtEnums";
 import { QMenuBar } from "./lib/QtWidgets/QMenuBar";
 import { QShortcut, QShortcutEvents } from "./lib/QtWidgets/QShortcut";
+import { AppRegistry } from "./lib/core/AppRegistry";
 
 const win = new QMainWindow();
 const shortcut = new QShortcut(win);
@@ -96,5 +97,5 @@ win.show();
 const qApp = QApplication.instance();
 qApp.setQuitOnLastWindowClosed(false);
 
-(global as any).win = win; // To prevent win from being garbage collected.
-(global as any).systemTray = tray; // To prevent system tray from being garbage collected.
+AppRegistry.registerComponent(win);
+AppRegistry.registerComponent(tray);
