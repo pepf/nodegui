@@ -1,0 +1,16 @@
+on: push
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, ubuntu-16.04, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        version: 12
+    - name: npm install and build
+      run: |
+        npm install
+        npm run build
